@@ -584,11 +584,18 @@ namespace TicTacToad
 
         private void TicTacToad_Load(object sender, EventArgs e)
         {
-            string s = Application.StartupPath + "\\fonts\\SFPRODISPLAYBOLD.OTF";
-            privateFont.AddFontFile(s);
-            foreach (Control c in Controls)
+            try
             {
-                c.Font = new Font(privateFont.Families[0], c.Font.Size);
+                string s = Application.StartupPath + "\\fonts\\SFPRODISPLAYBOLD.OTF";
+                privateFont.AddFontFile(s);
+                foreach (Control c in Controls)
+                {
+                    c.Font = new Font(privateFont.Families[0], c.Font.Size);
+
+                }
+            }
+            catch (Exception)
+            {
 
             }
             board = new MaterialButton[,]

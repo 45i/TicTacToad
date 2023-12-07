@@ -1,0 +1,14 @@
+F:\vs2022\projects\TicTacToad\bin\Release\TicTacToad.exe.config
+F:\vs2022\projects\TicTacToad\bin\Release\TicTacToad.exe
+F:\vs2022\projects\TicTacToad\bin\Release\TicTacToad.pdb
+F:\vs2022\projects\TicTacToad\bin\Release\System.Diagnostics.DiagnosticSource.xml
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.AssemblyReference.cache
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.SuggestedBindingRedirects.cache
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.TicTacToad.resources
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.Properties.Resources.resources
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.GenerateResource.cache
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.CoreCompileInputs.cache
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.Fody.CopyLocal.cache
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.CopyComplete
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.exe
+F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.pdb
