@@ -1,0 +1,14 @@
+F:\vs2022\projects\TicTacToad\bin\Debug\TicTacToad.exe.config
+F:\vs2022\projects\TicTacToad\bin\Debug\TicTacToad.exe
+F:\vs2022\projects\TicTacToad\bin\Debug\TicTacToad.pdb
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.csproj.AssemblyReference.cache
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.csproj.SuggestedBindingRedirects.cache
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.Properties.Resources.resources
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.csproj.GenerateResource.cache
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.csproj.CoreCompileInputs.cache
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.exe
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.pdb
+F:\vs2022\projects\TicTacToad\bin\Debug\FontAwesome.Sharp.dll
+F:\vs2022\projects\TicTacToad\bin\Debug\FontAwesome.Sharp.Material.dll
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.csproj.CopyComplete
+F:\vs2022\projects\TicTacToad\obj\Debug\TicTacToad.TicTacToad.resources
