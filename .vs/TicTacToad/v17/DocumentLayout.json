@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\Repos\\TicTacToad\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAEoDAAAAAAAAAAAUwFkDAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAEoDAAAAAAAAAAAUwFcDAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-01T12:27:48.947Z",
               "EditorCaption": ""
@@ -66,8 +66,7 @@
               "ToolTip": "D:\\Repos\\TicTacToad\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T12:27:54.78Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-01T12:27:54.78Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAAL4BAAAAAAAAAAAAwMMBAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T12:27:48.495Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-01T12:27:48.495Z"
             }
           ]
         }

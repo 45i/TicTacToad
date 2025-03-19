@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 496,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,14 +37,6 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{7bbe0196-eb79-4317-9140-30d7c7376db3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
@@ -52,10 +44,18 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\Repos\\TicTacToad\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAFYDAAAAAAAAAAAUwGYDAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEoDAAAAAAAAAAAUwFkDAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-01T12:27:48.947Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{7bbe0196-eb79-4317-9140-30d7c7376db3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -66,8 +66,7 @@
               "ToolTip": "D:\\Repos\\TicTacToad\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T12:27:54.78Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-01T12:27:54.78Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAAL4BAAAAAAAAAAAAwMMBAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T12:27:48.495Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-01T12:27:48.495Z"
             }
           ]
         }

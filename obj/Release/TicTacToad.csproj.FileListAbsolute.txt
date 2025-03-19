@@ -19,3 +19,14 @@ D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.GenerateResource.cache
 D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.CoreCompileInputs.cache
 D:\Repos\TicTacToad\obj\Release\TicTacToad.exe
 D:\Repos\TicTacToad\obj\Release\TicTacToad.pdb
+D:\Repos\TicTacToad\bin\Release\TicTacToad.exe.config
+D:\Repos\TicTacToad\bin\Release\TicTacToad.exe
+D:\Repos\TicTacToad\bin\Release\TicTacToad.pdb
+D:\Repos\TicTacToad\bin\Release\System.Buffers.xml
+D:\Repos\TicTacToad\bin\Release\System.Diagnostics.DiagnosticSource.xml
+D:\Repos\TicTacToad\bin\Release\System.Memory.xml
+D:\Repos\TicTacToad\bin\Release\System.Numerics.Vectors.xml
+D:\Repos\TicTacToad\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.Fody.CopyLocal.cache
+D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.Fody.RuntimeCopyLocal.cache
+D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.Up2Date

@@ -1,6 +1,7 @@
 # TicTacToad
 
-Welcome to TicTacToad! This is a fun and interactive Tic-Tac-Toe game.
+
+Welcome to TicTacToad! This is a fun and interactive Tic-Tac-Toe game.  [<- this claim was not made by me. blame copilot]
 
 ## Getting Started
 
@@ -24,13 +25,14 @@ Contributions are most welcome! Feel free to fork the repository and submit pull
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License.    [<- yet another bullshit copilot claim]
 
 ## Contact
 
-For any questions or suggestions, please open an issue or contact the project maintainers.
+For any questions or suggestions, please open an issue or contact the project maintainers.  [<- maintainers? yeah, right as if]
 
-Enjoy playing TicTacToad!
+Enjoy playing TicTacToad!  [you probably wont]
 
 
 > this documentation was made with AI [i couldnt be bothered]
+> also the neural network is turned off so it wont matter if the checkbox is turned on or off 
