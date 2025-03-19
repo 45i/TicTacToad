@@ -210,7 +210,7 @@ namespace TicTacToad
                 }
                 if (isOpen)
                 {
-                    playedButton = (checkBox2.Checked) ? callLookUp(clickedButton, playedButton, 2) : callAIPlay(clickedButton, playedButton);
+                    playedButton = (true) ? callLookUp(clickedButton, playedButton, 2) : callAIPlay(clickedButton, playedButton);
                     playedButton = (playedButton != null) ? playedButton : callAIPlay(clickedButton, playedButton);
                     playedButton.IconChar = FontAwesome.Sharp.MaterialIcons.CircleOutline;
                     horizontalResult_AI = checkVisionHorizontal(playedButton);
@@ -793,6 +793,7 @@ namespace TicTacToad
             foreach (MaterialButton c in playingBoard.Controls)
             {
                 c.Enabled = false;
+                c.Rotation = 45;
             }
             btnNewGame.Enabled = false;
             defaultColor = btnTopCenter.BackColor;

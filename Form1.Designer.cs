@@ -52,6 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkUseNeuralNetwork = new System.Windows.Forms.CheckBox();
             this.playingBoard.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,14 +78,15 @@
             this.playingBoard.Controls.Add(this.btnTopLeft, 0, 0);
             this.playingBoard.Controls.Add(this.btnTopCenter, 1, 0);
             this.playingBoard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.playingBoard.Location = new System.Drawing.Point(26, 26);
+            this.playingBoard.Location = new System.Drawing.Point(35, 32);
+            this.playingBoard.Margin = new System.Windows.Forms.Padding(4);
             this.playingBoard.Name = "playingBoard";
             this.playingBoard.RowCount = 3;
             this.playingBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.playingBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.playingBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.playingBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.playingBoard.Size = new System.Drawing.Size(370, 399);
+            this.playingBoard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.playingBoard.Size = new System.Drawing.Size(493, 491);
             this.playingBoard.TabIndex = 0;
             // 
             // btnDownLeft
@@ -94,9 +96,10 @@
             this.btnDownLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownLeft.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnDownLeft.IconColor = System.Drawing.Color.White;
-            this.btnDownLeft.Location = new System.Drawing.Point(4, 268);
+            this.btnDownLeft.Location = new System.Drawing.Point(5, 331);
+            this.btnDownLeft.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownLeft.Name = "btnDownLeft";
-            this.btnDownLeft.Size = new System.Drawing.Size(116, 127);
+            this.btnDownLeft.Size = new System.Drawing.Size(155, 155);
             this.btnDownLeft.TabIndex = 11;
             this.btnDownLeft.UseVisualStyleBackColor = true;
             this.btnDownLeft.Click += new System.EventHandler(this.btnClick_Board);
@@ -108,9 +111,10 @@
             this.btnDownCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownCenter.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnDownCenter.IconColor = System.Drawing.Color.White;
-            this.btnDownCenter.Location = new System.Drawing.Point(127, 268);
+            this.btnDownCenter.Location = new System.Drawing.Point(169, 331);
+            this.btnDownCenter.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownCenter.Name = "btnDownCenter";
-            this.btnDownCenter.Size = new System.Drawing.Size(116, 127);
+            this.btnDownCenter.Size = new System.Drawing.Size(155, 155);
             this.btnDownCenter.TabIndex = 6;
             this.btnDownCenter.UseVisualStyleBackColor = true;
             this.btnDownCenter.Click += new System.EventHandler(this.btnClick_Board);
@@ -122,9 +126,10 @@
             this.btnDownRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownRight.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnDownRight.IconColor = System.Drawing.Color.White;
-            this.btnDownRight.Location = new System.Drawing.Point(250, 268);
+            this.btnDownRight.Location = new System.Drawing.Point(333, 331);
+            this.btnDownRight.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownRight.Name = "btnDownRight";
-            this.btnDownRight.Size = new System.Drawing.Size(116, 127);
+            this.btnDownRight.Size = new System.Drawing.Size(155, 155);
             this.btnDownRight.TabIndex = 4;
             this.btnDownRight.UseVisualStyleBackColor = true;
             this.btnDownRight.Click += new System.EventHandler(this.btnClick_Board);
@@ -136,9 +141,10 @@
             this.btnMiddleLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMiddleLeft.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnMiddleLeft.IconColor = System.Drawing.Color.White;
-            this.btnMiddleLeft.Location = new System.Drawing.Point(4, 136);
+            this.btnMiddleLeft.Location = new System.Drawing.Point(5, 168);
+            this.btnMiddleLeft.Margin = new System.Windows.Forms.Padding(4);
             this.btnMiddleLeft.Name = "btnMiddleLeft";
-            this.btnMiddleLeft.Size = new System.Drawing.Size(116, 125);
+            this.btnMiddleLeft.Size = new System.Drawing.Size(155, 154);
             this.btnMiddleLeft.TabIndex = 3;
             this.btnMiddleLeft.UseVisualStyleBackColor = true;
             this.btnMiddleLeft.Click += new System.EventHandler(this.btnClick_Board);
@@ -150,9 +156,10 @@
             this.btnMiddleCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMiddleCenter.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnMiddleCenter.IconColor = System.Drawing.Color.White;
-            this.btnMiddleCenter.Location = new System.Drawing.Point(127, 136);
+            this.btnMiddleCenter.Location = new System.Drawing.Point(169, 168);
+            this.btnMiddleCenter.Margin = new System.Windows.Forms.Padding(4);
             this.btnMiddleCenter.Name = "btnMiddleCenter";
-            this.btnMiddleCenter.Size = new System.Drawing.Size(116, 125);
+            this.btnMiddleCenter.Size = new System.Drawing.Size(155, 154);
             this.btnMiddleCenter.TabIndex = 2;
             this.btnMiddleCenter.UseVisualStyleBackColor = true;
             this.btnMiddleCenter.Click += new System.EventHandler(this.btnClick_Board);
@@ -164,9 +171,10 @@
             this.btnTopRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTopRight.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnTopRight.IconColor = System.Drawing.Color.White;
-            this.btnTopRight.Location = new System.Drawing.Point(250, 4);
+            this.btnTopRight.Location = new System.Drawing.Point(333, 5);
+            this.btnTopRight.Margin = new System.Windows.Forms.Padding(4);
             this.btnTopRight.Name = "btnTopRight";
-            this.btnTopRight.Size = new System.Drawing.Size(116, 125);
+            this.btnTopRight.Size = new System.Drawing.Size(155, 154);
             this.btnTopRight.TabIndex = 7;
             this.btnTopRight.UseVisualStyleBackColor = true;
             this.btnTopRight.Click += new System.EventHandler(this.btnClick_Board);
@@ -178,9 +186,10 @@
             this.btnMiddleRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMiddleRight.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnMiddleRight.IconColor = System.Drawing.Color.White;
-            this.btnMiddleRight.Location = new System.Drawing.Point(250, 136);
+            this.btnMiddleRight.Location = new System.Drawing.Point(333, 168);
+            this.btnMiddleRight.Margin = new System.Windows.Forms.Padding(4);
             this.btnMiddleRight.Name = "btnMiddleRight";
-            this.btnMiddleRight.Size = new System.Drawing.Size(116, 125);
+            this.btnMiddleRight.Size = new System.Drawing.Size(155, 154);
             this.btnMiddleRight.TabIndex = 8;
             this.btnMiddleRight.UseVisualStyleBackColor = true;
             this.btnMiddleRight.Click += new System.EventHandler(this.btnClick_Board);
@@ -192,9 +201,10 @@
             this.btnTopLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTopLeft.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnTopLeft.IconColor = System.Drawing.Color.White;
-            this.btnTopLeft.Location = new System.Drawing.Point(4, 4);
+            this.btnTopLeft.Location = new System.Drawing.Point(5, 5);
+            this.btnTopLeft.Margin = new System.Windows.Forms.Padding(4);
             this.btnTopLeft.Name = "btnTopLeft";
-            this.btnTopLeft.Size = new System.Drawing.Size(116, 125);
+            this.btnTopLeft.Size = new System.Drawing.Size(155, 154);
             this.btnTopLeft.TabIndex = 9;
             this.btnTopLeft.UseVisualStyleBackColor = true;
             this.btnTopLeft.Click += new System.EventHandler(this.btnClick_Board);
@@ -206,9 +216,10 @@
             this.btnTopCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTopCenter.IconChar = FontAwesome.Sharp.MaterialIcons.None;
             this.btnTopCenter.IconColor = System.Drawing.Color.White;
-            this.btnTopCenter.Location = new System.Drawing.Point(127, 4);
+            this.btnTopCenter.Location = new System.Drawing.Point(169, 5);
+            this.btnTopCenter.Margin = new System.Windows.Forms.Padding(4);
             this.btnTopCenter.Name = "btnTopCenter";
-            this.btnTopCenter.Size = new System.Drawing.Size(116, 125);
+            this.btnTopCenter.Size = new System.Drawing.Size(155, 154);
             this.btnTopCenter.TabIndex = 10;
             this.btnTopCenter.UseVisualStyleBackColor = true;
             this.btnTopCenter.Click += new System.EventHandler(this.btnClick_Board);
@@ -225,9 +236,10 @@
             this.btnMinimise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimise.IconChar = FontAwesome.Sharp.MaterialIcons.Minus;
             this.btnMinimise.IconColor = System.Drawing.Color.White;
-            this.btnMinimise.Location = new System.Drawing.Point(548, 2);
+            this.btnMinimise.Location = new System.Drawing.Point(746, 2);
+            this.btnMinimise.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimise.Name = "btnMinimise";
-            this.btnMinimise.Size = new System.Drawing.Size(117, 50);
+            this.btnMinimise.Size = new System.Drawing.Size(156, 62);
             this.btnMinimise.TabIndex = 1;
             this.btnMinimise.UseVisualStyleBackColor = false;
             this.btnMinimise.Click += new System.EventHandler(this.btnMinimise_Click);
@@ -244,10 +256,11 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.IconChar = FontAwesome.Sharp.MaterialIcons.Plus;
             this.btnClose.IconColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(671, 2);
+            this.btnClose.Location = new System.Drawing.Point(910, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Rotation = 45D;
-            this.btnClose.Size = new System.Drawing.Size(117, 50);
+            this.btnClose.Size = new System.Drawing.Size(156, 62);
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -263,10 +276,11 @@
             this.logoX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoX.IconChar = FontAwesome.Sharp.MaterialIcons.Plus;
             this.logoX.IconColor = System.Drawing.Color.White;
-            this.logoX.Location = new System.Drawing.Point(3, 2);
+            this.logoX.Location = new System.Drawing.Point(4, 2);
+            this.logoX.Margin = new System.Windows.Forms.Padding(4);
             this.logoX.Name = "logoX";
             this.logoX.Rotation = 45D;
-            this.logoX.Size = new System.Drawing.Size(36, 22);
+            this.logoX.Size = new System.Drawing.Size(48, 27);
             this.logoX.TabIndex = 3;
             this.logoX.UseVisualStyleBackColor = false;
             // 
@@ -282,10 +296,11 @@
             this.logoO.IconChar = FontAwesome.Sharp.MaterialIcons.CircleOutline;
             this.logoO.IconColor = System.Drawing.Color.White;
             this.logoO.IconSize = 32;
-            this.logoO.Location = new System.Drawing.Point(33, 2);
+            this.logoO.Location = new System.Drawing.Point(44, 2);
+            this.logoO.Margin = new System.Windows.Forms.Padding(4);
             this.logoO.Name = "logoO";
             this.logoO.Rotation = 45D;
-            this.logoO.Size = new System.Drawing.Size(36, 22);
+            this.logoO.Size = new System.Drawing.Size(48, 27);
             this.logoO.TabIndex = 4;
             this.logoO.UseVisualStyleBackColor = false;
             // 
@@ -293,9 +308,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(75, 7);
+            this.label1.Location = new System.Drawing.Point(91, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(83, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "TicTacToad";
             // 
@@ -315,9 +331,10 @@
             this.btnNewGame.IconChar = FontAwesome.Sharp.MaterialIcons.PencilPlus;
             this.btnNewGame.IconColor = System.Drawing.Color.LimeGreen;
             this.btnNewGame.IconSize = 96;
-            this.btnNewGame.Location = new System.Drawing.Point(439, 129);
+            this.btnNewGame.Location = new System.Drawing.Point(656, 176);
+            this.btnNewGame.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(354, 143);
+            this.btnNewGame.Size = new System.Drawing.Size(323, 159);
             this.btnNewGame.TabIndex = 6;
             this.btnNewGame.Text = "Start New Game";
             this.btnNewGame.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -326,12 +343,14 @@
             // 
             // statusText
             // 
+            this.statusText.AutoSize = true;
             this.statusText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusText.ForeColor = System.Drawing.Color.White;
-            this.statusText.Location = new System.Drawing.Point(45, 0);
+            this.statusText.Location = new System.Drawing.Point(60, 0);
+            this.statusText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.statusText.Name = "statusText";
-            this.statusText.Size = new System.Drawing.Size(113, 28);
+            this.statusText.Size = new System.Drawing.Size(52, 35);
             this.statusText.TabIndex = 8;
             this.statusText.Text = "Wins!";
             this.statusText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -348,9 +367,10 @@
             this.statusIcon.IconChar = FontAwesome.Sharp.MaterialIcons.CircleOutline;
             this.statusIcon.IconColor = System.Drawing.Color.White;
             this.statusIcon.IconSize = 32;
-            this.statusIcon.Location = new System.Drawing.Point(3, 3);
+            this.statusIcon.Location = new System.Drawing.Point(4, 4);
+            this.statusIcon.Margin = new System.Windows.Forms.Padding(4);
             this.statusIcon.Name = "statusIcon";
-            this.statusIcon.Size = new System.Drawing.Size(36, 22);
+            this.statusIcon.Size = new System.Drawing.Size(48, 27);
             this.statusIcon.TabIndex = 7;
             this.statusIcon.UseVisualStyleBackColor = false;
             // 
@@ -359,9 +379,10 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.statusIcon);
             this.flowLayoutPanel1.Controls.Add(this.statusText);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(548, 79);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(656, 97);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 44);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(329, 54);
             this.flowLayoutPanel1.TabIndex = 9;
             this.flowLayoutPanel1.Visible = false;
             // 
@@ -372,9 +393,10 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(525, 347);
+            this.radioButton1.Location = new System.Drawing.Point(705, 427);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(53, 17);
+            this.radioButton1.Size = new System.Drawing.Size(66, 20);
             this.radioButton1.TabIndex = 10;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Player";
@@ -388,9 +410,10 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(642, 347);
+            this.radioButton2.Location = new System.Drawing.Point(863, 427);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(69, 17);
+            this.radioButton2.Size = new System.Drawing.Size(85, 20);
             this.radioButton2.TabIndex = 11;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Computer";
@@ -403,9 +426,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(552, 294);
+            this.label2.Location = new System.Drawing.Point(680, 363);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 28);
+            this.label2.Size = new System.Drawing.Size(151, 34);
             this.label2.TabIndex = 12;
             this.label2.Text = "First Play";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -417,29 +441,46 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Location = new System.Drawing.Point(492, 307);
+            this.label3.Location = new System.Drawing.Point(656, 378);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(243, 86);
+            this.label3.Size = new System.Drawing.Size(323, 105);
             this.label3.TabIndex = 13;
             // 
             // checkBox1
             // 
             this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.checkBox1.Location = new System.Drawing.Point(525, 421);
+            this.checkBox1.Location = new System.Drawing.Point(852, 487);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(181, 24);
+            this.checkBox1.Size = new System.Drawing.Size(184, 30);
             this.checkBox1.TabIndex = 14;
             this.checkBox1.Text = "Enable Debug Mode";
             this.checkBox1.UseVisualStyleBackColor = true;
+            
+            // 
+            // chkUseNeuralNetwork
+            // 
+            this.chkUseNeuralNetwork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkUseNeuralNetwork.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.chkUseNeuralNetwork.Location = new System.Drawing.Point(660, 487);
+            this.chkUseNeuralNetwork.Margin = new System.Windows.Forms.Padding(4);
+            this.chkUseNeuralNetwork.Name = "chkUseNeuralNetwork";
+            this.chkUseNeuralNetwork.Size = new System.Drawing.Size(184, 30);
+            this.chkUseNeuralNetwork.TabIndex = 15;
+            this.chkUseNeuralNetwork.Text = "Use NeuralNet";
+            this.chkUseNeuralNetwork.UseVisualStyleBackColor = true;
+            
             // 
             // TicTacToad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(24)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.chkUseNeuralNetwork);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioButton2);
@@ -454,11 +495,13 @@
             this.Controls.Add(this.playingBoard);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TicTacToad";
             this.Text = "TicTacToad";
             this.Load += new System.EventHandler(this.TicTacToad_Load);
             this.playingBoard.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,6 +533,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkUseNeuralNetwork;
     }
 }
 

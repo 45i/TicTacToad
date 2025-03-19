@@ -12,3 +12,10 @@ F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.Fody.CopyLocal.cache
 F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.csproj.CopyComplete
 F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.exe
 F:\vs2022\projects\TicTacToad\obj\Release\TicTacToad.pdb
+D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.AssemblyReference.cache
+D:\Repos\TicTacToad\obj\Release\TicTacToad.TicTacToad.resources
+D:\Repos\TicTacToad\obj\Release\TicTacToad.Properties.Resources.resources
+D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.GenerateResource.cache
+D:\Repos\TicTacToad\obj\Release\TicTacToad.csproj.CoreCompileInputs.cache
+D:\Repos\TicTacToad\obj\Release\TicTacToad.exe
+D:\Repos\TicTacToad\obj\Release\TicTacToad.pdb
