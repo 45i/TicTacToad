@@ -9,19 +9,14 @@ using System.Windows.Forms;
 
 namespace TicTacToad
 {
-
-    /// <summary>
-    /// The TicTacToad class inherits from Form class. It is the main class for a Tic Tac Toe game,
-    /// containing essential variables for game like board, game status, player's turn and game icons. It also
-    /// consists of methods to handle game logic, AI play, game state checks, 
-    /// event handlers for button clicks, and form load.
-    /// </summary>
-
     public partial class TicTacToad : Form
     {
         public PrivateFontCollection PrivateFont = new PrivateFontCollection();
         public GameIcon playerIcon = new GameIcon(FontAwesome.Sharp.MaterialIcons.Plus);
         public bool playerTurn = true;
+
+        public BiasProfile activeProfile;
+
         int turns = 0;
         public MaterialButton[,] board;
         private bool gameStarted;
@@ -64,7 +59,6 @@ namespace TicTacToad
 
                         playerTurn = !playerTurn;
                         clickedButton.IconChar = playerIcon.Icon;
-                        /*clickedButton.Rotation = (playerIcon.Icon == FontAwesome.Sharp.MaterialIcons.Plus) ? 45 : 0;*/
                         int i = 0, j = 0;
                         for (; i < 3; i++)
                         {
@@ -295,7 +289,7 @@ namespace TicTacToad
                                     board[h, g].IconChar = FontAwesome.Sharp.MaterialIcons.None;
                                     checkedBTNS[board[i, j]].Add(board[h, g]);
                                     MaterialButton temp = board[i, j];
-                                    if ((turns == 1 || turns == 2) ? (temp != btnTopCenter && temp != btnMiddleLeft && temp != btnMiddleRight && temp != btnDownCenter) : true)
+                                    if ((activeProfile.AvoidsEdgeCenterOpening && (turns == 1 || turns == 2)) ? (temp != btnTopCenter && temp != btnMiddleLeft && temp != btnMiddleRight && temp != btnDownCenter) : true)
                                     {
                                         if (h_AI == 3 || v_AI == 3 || l_diag_AI == 3 || r_diag_AI == 3)
                                         {
@@ -334,7 +328,9 @@ namespace TicTacToad
             statusText.Text = (highestScore > 0) ? ((highestScore_AI == highestScore_Player) ? "Predicting a draw..." : ((highestScore_Player > highestScore_AI) ? "Player " : "AI ") + "has a higher chance of winning!") : "LookUp Failed! Performing Default Prediction Algorithm";
             playerTurn = true;
 
-            return (toPlay == null) ? callAIPlay(clickedButton, playedButton) : toPlay;
+            MaterialButton chosen = (toPlay == null) ? callAIPlay(clickedButton, playedButton) : toPlay;
+            System.Diagnostics.Debug.WriteLine($"Profile {activeProfile.Seed} chose {chosen?.Name} on turn {turns}");
+            return chosen;
         }
 
         private bool isInList(MaterialButton materialButton, ArrayList arrayList)
@@ -372,13 +368,12 @@ namespace TicTacToad
                         {
                             button.IconChar = FontAwesome.Sharp.MaterialIcons.CircleOutline;
                             playedButton = button;
-                            goto Outer; // Break out of the outer loop
+                            goto Outer;
                         }
                     }
                 }
             }
         Outer:
-            /*flowLayoutPanel1.Visible = false;*/
             playerTurn = true;
             return playedButton;
         }
@@ -391,7 +386,6 @@ namespace TicTacToad
                 {
                     if (priorities[j] < priorities[j + 1])
                     {
-                        // Swap priorities if they are in the wrong order
                         int temp = priorities[j];
                         priorities[j] = priorities[j + 1];
                         priorities[j + 1] = temp;
@@ -401,20 +395,6 @@ namespace TicTacToad
             return priorities;
         }
 
-        /// <summary>
-        /// Method arrangeLinesBasedOnPriorities for TicTacToad class.
-        /// </summary>
-        /// <param name="priorities">A list of integers indicating the priority of each material button array in the second parameter.</param>
-        /// <param name="list">A list of arrays containing MaterialButtons. This list is sorted by priority indicated in the first parameter.</param>
-        /// <returns>A list of sorted arrays of MaterialButtons.</returns>
-        /// <remarks>
-        /// This method sorts the provided list of arrays of MaterialButtons based on the provided list of priorities.
-        /// The highest priority (highest integer number) will be the first in the list and the lowest priority (lowest integer number) 
-        /// will be the last in the resultant list. If two arrays have the same priority, their order is unpredictable.
-        /// This method uses the bubble-sort algorithm for sorting and can significantly affect performance when provided
-        /// with a large number of arrays. 
-        /// </remarks>
-
         private List<MaterialButton[]> arrangeLinesBasedOnPriorities(List<int> priorities, List<MaterialButton[]> list)
         {
             for (int i = 0; i < priorities.Count - 1; i++)
@@ -423,12 +403,9 @@ namespace TicTacToad
                 {
                     if (priorities[j] < priorities[j + 1])
                     {
-                        // Swap priorities if they are in the wrong order
-                        // ReSharper disable once SwapViaDeconstruction
                         MaterialButton[] temp = list[j];
                         list[j] = list[j + 1];
                         list[j + 1] = temp;
-                        // ReSharper disable once SwapViaDeconstruction
                         int tempPrio = priorities[j];
                         priorities[j] = priorities[j + 1];
                         priorities[j + 1] = tempPrio;
@@ -440,99 +417,71 @@ namespace TicTacToad
 
         private List<int> generatePriorities(MaterialButton player)
         {
-            // Create a List<int> to store the result priorities
             List<int> priorities = new List<int>();
 
-            // Retrieve and store the result of checking the horizontal vision for the player
             MaterialButton[] horizontalResult = checkVisionHorizontal(player);
             int horizontalPriority = checkFilledEntries(horizontalResult, player) * 1;
             priorities.Add(horizontalPriority);
 
-            // Retrieve and store the result of checking the vertical vision for the player
             MaterialButton[] verticalResult = checkVisionVertical(player);
             int verticalPriority = checkFilledEntries(verticalResult, player) * 1;
             priorities.Add(verticalPriority);
 
-            // Retrieve and store the result of checking the left diagonal vision for the player
             MaterialButton[] leftDiagonalResult = checkVisionDiagonal_Left(player);
-            int leftDiagonalPriority = checkFilledEntries(leftDiagonalResult, player) + (int)Math.Round(2 * (1 / 3.0) * checkFilledEntries(leftDiagonalResult, player));
+            int leftDiagonalPriority = checkFilledEntries(leftDiagonalResult, player) + (int)Math.Round(activeProfile.PlayerDiagonalMultiplier * (1 / 3.0) * checkFilledEntries(leftDiagonalResult, player));
             priorities.Add(leftDiagonalPriority);
 
-            // Retrieve and store the result of checking the right diagonal vision for the player
             MaterialButton[] rightDiagonalResult = checkVisionDiagonal_Right(player);
-            int rightDiagonalPriority = checkFilledEntries(rightDiagonalResult, player) + (int)Math.Round(2 * (1 / 3.0) * checkFilledEntries(rightDiagonalResult, player));
+            int rightDiagonalPriority = checkFilledEntries(rightDiagonalResult, player) + (int)Math.Round(activeProfile.PlayerDiagonalMultiplier * (1 / 3.0) * checkFilledEntries(rightDiagonalResult, player));
             priorities.Add(rightDiagonalPriority);
 
             MaterialButton[] horizontalResult_AI = checkVisionHorizontal(playedButton);
-            int horizontalPriority_AI = checkFilledEntries(horizontalResult_AI, playedButton) + (int)Math.Round(2.5 * (1 / 3.0) * checkFilledEntries(horizontalResult_AI, playedButton));
+            int horizontalPriority_AI = checkFilledEntries(horizontalResult_AI, playedButton) + (int)Math.Round(activeProfile.AiStraightMultiplier * (1 / 3.0) * checkFilledEntries(horizontalResult_AI, playedButton));
             priorities.Add(horizontalPriority_AI);
 
-            // Retrieve and store the Result_AI of checking the vertical vision for the playedButton
             MaterialButton[] verticalResult_AI = checkVisionVertical(playedButton);
-            int verticalPriority_AI = checkFilledEntries(verticalResult_AI, playedButton) + (int)Math.Round(2.5 * (1 / 3.0) * checkFilledEntries(verticalResult_AI, playedButton));
+            int verticalPriority_AI = checkFilledEntries(verticalResult_AI, playedButton) + (int)Math.Round(activeProfile.AiStraightMultiplier * (1 / 3.0) * checkFilledEntries(verticalResult_AI, playedButton));
             priorities.Add(verticalPriority_AI);
 
-            // Retrieve and store the Result_AI of checking the left diagonal vision for the playedButton
             MaterialButton[] leftDiagonalResult_AI = checkVisionDiagonal_Left(playedButton);
-            int leftDiagonalPriority_AI = checkFilledEntries(leftDiagonalResult_AI, playedButton) + (int)Math.Round(3 * (1 / 3.0) * checkFilledEntries(leftDiagonalResult_AI, playedButton));
+            int leftDiagonalPriority_AI = checkFilledEntries(leftDiagonalResult_AI, playedButton) + (int)Math.Round(activeProfile.AiDiagonalMultiplier * (1 / 3.0) * checkFilledEntries(leftDiagonalResult_AI, playedButton));
             priorities.Add(leftDiagonalPriority_AI);
 
-            // Retrieve and store the Result_AI of checking the right diagonal vision for the playedButton
             MaterialButton[] rightDiagonalResult_AI = checkVisionDiagonal_Right(playedButton);
-            int rightDiagonalPriority_AI = checkFilledEntries(rightDiagonalResult_AI, playedButton) + (int)Math.Round(3 * (1 / 3.0) * checkFilledEntries(rightDiagonalResult_AI, playedButton));
+            int rightDiagonalPriority_AI = checkFilledEntries(rightDiagonalResult_AI, playedButton) + (int)Math.Round(activeProfile.AiDiagonalMultiplier * (1 / 3.0) * checkFilledEntries(rightDiagonalResult_AI, playedButton));
             priorities.Add(rightDiagonalPriority_AI);
 
-            // Return the completed List<int> of priorities
             return priorities;
         }
 
-        /// <summary>
-        /// The 'generateLines' function is a method in the TicTacToad class that produces and returns a list of MaterialButton arrays; 
-        /// The function first generates a list for storing arrays (each representing a 'line' in the game).
-        /// Then, it calls upon other methods to retrieve vision checks (horizontally, vertically, left diagonally, right diagonally) for both player and AI. 
-        /// Each successful vision check is added to the list as an array of MaterialButton elements. 
-        /// This function is mainly for determining possible game winning lines in the current state of the game.
-        /// </summary>
-        /// <param name="player"> A MaterialButton object representing the player's last move in the game. </param>
-        /// <param name="ai"> A MaterialButton object representing the AI's last move in the game. </param>
-        /// <returns> It returns a list of MaterialButton arrays. Each array in the list represents a potentially successful line in the game. </returns>
         private List<MaterialButton[]> generateLines(MaterialButton player, MaterialButton ai)
         {
-            // Create a List<ArrayList> to store the result lines
             List<MaterialButton[]> lines = new List<MaterialButton[]>();
 
-            // Retrieve and store the result of checking the horizontal vision for the player
             MaterialButton[] horizontalResult = checkVisionHorizontal(player);
             lines.Add(horizontalResult);
 
-            // Retrieve and store the result of checking the vertical vision for the player
             MaterialButton[] verticalResult = checkVisionVertical(player);
             lines.Add(verticalResult);
 
-            // Retrieve and store the result of checking the left diagonal vision for the player
             MaterialButton[] leftDiagonalResult = checkVisionDiagonal_Left(player);
             lines.Add(leftDiagonalResult);
 
-            // Retrieve and store the result of checking the right diagonal vision for the player
             MaterialButton[] rightDiagonalResult = checkVisionDiagonal_Right(player);
             lines.Add(rightDiagonalResult);
 
             MaterialButton[] horizontalResult_AI = checkVisionHorizontal(playedButton);
             lines.Add(horizontalResult_AI);
 
-            // Retrieve and store the Result_AI of checking the vertical vision for the player
             MaterialButton[] verticalResult_AI = checkVisionVertical(playedButton);
             lines.Add(verticalResult_AI);
 
-            // Retrieve and store the Result_AI of checking the left diagonal vision for the player
             MaterialButton[] leftDiagonalResult_AI = checkVisionDiagonal_Left(playedButton);
             lines.Add(leftDiagonalResult_AI);
 
-            // Retrieve and store the Result_AI of checking the right diagonal vision for the player
             MaterialButton[] rightDiagonalResult_AI = checkVisionDiagonal_Right(playedButton);
             lines.Add(rightDiagonalResult_AI);
 
-            // Return the completed List<ArrayList> of lines
             return lines;
         }
 
@@ -801,58 +750,48 @@ namespace TicTacToad
         }
         public class GameIcon
         {
-            public FontAwesome.Sharp.MaterialIcons Icon { get; set; }  // Property named "icon"
+            public FontAwesome.Sharp.MaterialIcons Icon { get; set; }
 
             public GameIcon(FontAwesome.Sharp.MaterialIcons icon)
             {
-                Icon = icon;  // Constructor to initialize the "icon" property
+                Icon = icon;
             }
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            // Set the gameStarted flag to true
             gameStarted = true;
 
-            // Change the icon and text of the btnNewGame button
             btnNewGame.IconChar = FontAwesome.Sharp.MaterialIcons.Check;
             btnNewGame.Text = "Game Started!";
 
-            // Hide the btnNewGame button and the flowLayoutPanel1 control
             btnNewGame.Visible = false;
             flowLayoutPanel1.Visible = false;
 
-            // Enable the playingBoard control
             playingBoard.Enabled = true;
 
-            // Enable each button in the playingBoard control
             foreach (MaterialButton c in playingBoard.Controls)
             {
                 c.Enabled = true;
                 c.IconChar = FontAwesome.Sharp.MaterialIcons.None;
                 c.IconColor = Color.White;
-                /*c.Rotation = 0;*//**/
             }
 
-            // Create an instance of the Random class
             Random random = new Random();
 
-            // Get the row and column count of the 2D array
             int rows = board.GetLength(0);
             int columns = board.GetLength(1);
 
-            // Generate random row and column indices
             int randomRow = random.Next(rows);
             int randomColumn = random.Next(columns);
 
             MaterialButton[] elements = { board[0, 0], board[0, 2], board[2, 0], board[2, 2], board[1, 1] };
 
-            // Retrieve the random element from the array
             MaterialButton randomElement = elements[random.Next(elements.Length)];
             playedButton = randomElement;
             turns = 0;
-
-            // If the radioButton2 is checked, call the AIPlay function
+            activeProfile = BiasProfile.Generate();
+            System.Diagnostics.Debug.WriteLine("New game, profile: " + activeProfile);
             if (radioButton2.Checked)
             {
                 playedButton = callAIPlay(randomElement, randomElement);
@@ -865,7 +804,6 @@ namespace TicTacToad
                 playedButton.IconChar = FontAwesome.Sharp.MaterialIcons.CircleOutline;
             }
 
-            // Set the playerTurn flag to true
             playerTurn = true;
         }
 
